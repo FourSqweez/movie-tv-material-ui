@@ -22,7 +22,7 @@ export default function Trending() {
 
 	return (
 		<Container>
-			<PageTitle>trending</PageTitle>
+			<span className="page-title">trending</span>
 			<TrendingContainer>
 				{contents &&
 					contents.map((c) => (
@@ -31,7 +31,7 @@ export default function Trending() {
 							id={c.id}
 							poster={c.poster_path}
 							title={c.title || c.name}
-							date={c.first_air_date}
+							date={c.first_air_date || c.release_date}
 							media_type={c.media_type}
 							vote_average={c.vote_average}
 						/>
@@ -41,6 +41,8 @@ export default function Trending() {
 	)
 }
 
-const PageTitle = styled.span``
-
-const TrendingContainer = styled.div``
+const TrendingContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+`
