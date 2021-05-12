@@ -35,10 +35,12 @@ const ContentContainer = styled.div`
 	position: relative;
 	font-family: 'Montserrat', sans-serif;
 	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 
 	:hover {
 		background-color: white;
 		color: black;
+		transform: scale(1.02);
 	}
 
 	@media (max-width: 550px) {
