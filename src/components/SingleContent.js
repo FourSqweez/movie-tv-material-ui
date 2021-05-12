@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Badge from '@material-ui/core/Badge'
 import { img_300, unavailable } from './../config/index'
 export default function SingleContent({
 	id,
@@ -8,9 +9,13 @@ export default function SingleContent({
 	media_type,
 	vote_average,
 }) {
-	console.log('date: ', date)
+	console.log('vote: ', vote_average, title)
 	return (
 		<ContentContainer>
+			<Badge
+				badgeContent={vote_average || '7.5'}
+				color={vote_average > 6 ? 'primary' : 'secondary'}
+			/>
 			<ImagePoster
 				src={poster ? `${img_300}/${poster}` : unavailable}
 				alt={title}
