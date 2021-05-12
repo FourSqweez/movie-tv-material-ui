@@ -2,7 +2,7 @@ import styled from 'styled-components'
 export default function Header() {
 	return (
 		<HeaderContainer>
-			<span>🎬 Entertainment hub 🎥</span>
+			<span onClick={() => window.scroll(0, 0)}>🎬 Entertainment hub 🎥</span>
 		</HeaderContainer>
 	)
 }

@@ -2,13 +2,14 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	scroll-behavior: smooth;
 }
 
 .app {
 	min-height: 100vh;
 	background-color: #39445a;
 	color: white;
-	padding-top: 130px;
+	padding-top: 80px;
 	padding-bottom: 70px;
 }
 
@@ -23,10 +24,11 @@
 	display: flex;
 	justify-content: center;
 	font-family: 'Montserrat', sans-serif;
-	font-size: 2vw;
+	font-size: 3vw;
 	padding: 4px;
 	border-radius: 50px;
 	color: white;
+	top: 0;
 }
 
 @media (max-width: 1000px) {
