@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import CustomPagination from '../components/CustomPagination'
 import SingleContent from '../components/SingleContent'
+import { ContentContainer } from '../components/utils/ContentContainer'
 
 export default function Trending() {
 	const [contents, setContents] = useState([])
@@ -12,18 +13,17 @@ export default function Trending() {
 		const { data } = await axios.get(
 			`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&page=${page}`
 		)
-		console.log('data', data)
-
 		setContents(data.results)
 	}
 	useEffect(() => {
 		fetchTrending()
+		// eslint-disable-next-line
 	}, [page])
 
 	return (
 		<div>
 			<span className="page-title">trending</span>
-			<TrendingContainer>
+			<ContentContainer>
 				{contents &&
 					contents.map((c) => (
 						<SingleContent
@@ -36,14 +36,8 @@ export default function Trending() {
 							vote_average={c.vote_average || '7.5'}
 						/>
 					))}
-			</TrendingContainer>
+			</ContentContainer>
 			<CustomPagination setPage={setPage} />
 		</div>
 	)
 }
-
-const TrendingContainer = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-`
