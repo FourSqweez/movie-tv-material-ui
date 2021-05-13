@@ -46,6 +46,9 @@ const ContentContainer = styled.div`
 		color: black;
 		transform: scale(1.02);
 	}
+	@media (min-width: 1265px) {
+		margin: 5px 5px;
+	}
 
 	@media (max-width: 550px) {
 		width: 46%;

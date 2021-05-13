@@ -1,4 +1,3 @@
-import { Container } from '@material-ui/core'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
@@ -22,7 +21,7 @@ export default function Trending() {
 	}, [page])
 
 	return (
-		<Container>
+		<div>
 			<span className="page-title">trending</span>
 			<TrendingContainer>
 				{contents &&
@@ -39,12 +38,12 @@ export default function Trending() {
 					))}
 			</TrendingContainer>
 			<CustomPagination setPage={setPage} />
-		</Container>
+		</div>
 	)
 }
 
 const TrendingContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-evenly;
 `
