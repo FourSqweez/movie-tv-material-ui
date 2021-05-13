@@ -9,11 +9,10 @@ export default function SingleContent({
 	media_type,
 	vote_average,
 }) {
-	console.log('vote: ', vote_average, title)
 	return (
 		<ContentContainer>
 			<Badge
-				badgeContent={vote_average || '7.5'}
+				badgeContent={vote_average}
 				color={vote_average > 6 ? 'primary' : 'secondary'}
 			/>
 			<ImagePoster
