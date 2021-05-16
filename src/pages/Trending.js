@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import CustomPagination from '../components/CustomPagination'
 import SingleContent from '../components/SingleContent'
 import { ContentContainer } from '../components/utils/ContentContainer'
