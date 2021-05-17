@@ -8,6 +8,7 @@ import axios from 'axios'
 import { img_500, unavailable, unavailableLandscape } from '../config'
 import YouTubeIcon from '@material-ui/icons/YouTube'
 import { Button } from '@material-ui/core'
+import Carousel from './Carousel'
 
 const useStyles = makeStyles((theme) => ({
 	modal: {
@@ -115,6 +116,10 @@ export default function ContentModal({ children, media_type, id }) {
 										{content.tagline && content.tagline}
 									</AboutTagline>
 									<Description>{content.overview}</Description>
+
+									<div>
+										<Carousel media_type={media_type} id={id} />
+									</div>
 
 									<Button
 										variant="contained"
