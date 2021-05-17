@@ -1,8 +1,17 @@
-import styled from "styled-components"
+import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 export default function Header() {
+	const history = useHistory()
 	return (
 		<HeaderContainer>
-			<span onClick={() => window.scroll(0, 0)}>🎬 Entertainment hub 🎥</span>
+			<span
+				onClick={() => {
+					window.scroll(0, 0)
+					history.push('/')
+				}}
+			>
+				🎬 Entertainment hub 🎥
+			</span>
 		</HeaderContainer>
 	)
 }
@@ -22,7 +31,7 @@ const HeaderContainer = styled.div`
 		text-transform: uppercase;
 		cursor: pointer;
 		font-size: 3rem;
-		font-family: "Montserrat", sans-serif;
+		font-family: 'Montserrat', sans-serif;
 		letter-spacing: 1px;
 	}
 
