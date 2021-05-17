@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Badge from '@material-ui/core/Badge'
 import { img_300, unavailable } from './../config/index'
+import ContentModal from './contentModal'
 export default function SingleContent({
 	id,
 	poster,
@@ -10,21 +11,23 @@ export default function SingleContent({
 	vote_average,
 }) {
 	return (
-		<ContentContainer>
-			<Badge
-				badgeContent={vote_average}
-				color={vote_average > 6 ? 'primary' : 'secondary'}
-			/>
-			<ImagePoster
-				src={poster ? `${img_300}/${poster}` : unavailable}
-				alt={title}
-			/>
-			<Title title={title}>{title}</Title>
-			<SubTitleContainer>
-				<span>{media_type === 'tv' ? 'TV Series' : 'Movie'}</span>
-				<span>{date}</span>
-			</SubTitleContainer>
-		</ContentContainer>
+		<ContentModal media_type={media_type} id={id}>
+			<ContentContainer>
+				<Badge
+					badgeContent={vote_average}
+					color={vote_average > 6 ? 'primary' : 'secondary'}
+				/>
+				<ImagePoster
+					src={poster ? `${img_300}/${poster}` : unavailable}
+					alt={title}
+				/>
+				<Title title={title}>{title}</Title>
+				<SubTitleContainer>
+					<span>{media_type === 'tv' ? 'TV Series' : 'Movie'}</span>
+					<span>{date}</span>
+				</SubTitleContainer>
+			</ContentContainer>
+		</ContentModal>
 	)
 }
 
@@ -50,7 +53,7 @@ const ContentContainer = styled.div`
 		margin: 5px 5px;
 	}
 
-	@media (max-width: 550px) {
+	@media (max-width: 480px) {
 		width: 46%;
 	}
 `
