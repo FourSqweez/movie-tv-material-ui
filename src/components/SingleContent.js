@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Badge from '@material-ui/core/Badge'
 import { img_300, unavailable } from './../config/index'
-import ContentModal from './contentModal'
+import ContentModal from './ContentModal'
 export default function SingleContent({
 	id,
 	poster,
