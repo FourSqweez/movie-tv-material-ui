@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 export default function Header() {
 	return (
 		<HeaderContainer>
@@ -22,7 +22,7 @@ const HeaderContainer = styled.div`
 		text-transform: uppercase;
 		cursor: pointer;
 		font-size: 3rem;
-		font-family: 'Montserrat', sans-serif;
+		font-family: "Montserrat", sans-serif;
 		letter-spacing: 1px;
 	}
 

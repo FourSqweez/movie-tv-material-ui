@@ -1,4 +1,3 @@
-
 import Genres from './../components/Genres'
 import { ContentContainer } from './../components/utils/ContentContainer'
 import SingleContent from './../components/SingleContent'
