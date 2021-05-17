@@ -164,7 +164,7 @@ const ModalAboutContainer = styled.div`
 
 const AboutTitle = styled.span`
 	height: 12%;
-	font-size: 5vw;
+	font-size: 4vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -230,11 +230,11 @@ const ModalContainer = styled.div`
 		}
 
 		${AboutTitle} {
-			font-size: 3vw;
+			font-size: 2.6vw;
 		}
 
 		${Description} {
-			font-size: 1.3rem;
+			font-size: 3vh;
 		}
 	}
 `
