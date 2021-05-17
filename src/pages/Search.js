@@ -31,20 +31,30 @@ export default function Search() {
 	const [numOfPages, setNumOfPages] = useState()
 
 	const fetchSearch = async () => {
-		const { data } = await axios.get(`https://api.themoviedb.org/3/search/
-		${type ? 'tv' : 'movie'}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}
-		&language=en-US&query=${searchText}&page=${page}&include_adult=false`)
+		try {
+			if (searchText) {
+				const { data } = await axios.get(`https://api.themoviedb.org/3/search/
+				${type ? 'tv' : 'movie'}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}
+				&language=en-US&query=${searchText}&page=${page}&include_adult=false`)
 
-		setContents(data.results)
-		setNumOfPages(data.total_pages)
-		setSearchClicked(true)
-		console.log(data.results)
-		console.log('searchText : ', searchText)
+				setContents(data.results)
+				setNumOfPages(data.total_pages)
+				setSearchClicked(true)
+				console.log(data.results)
+				console.log('searchText : ', searchText)
+			} else {
+				alert('พิมพ์ก่อนไอ่เวร')
+			}
+		} catch (error) {
+			console.log('error: ', error)
+		}
 	}
 
 	useEffect(() => {
 		window.scroll(0, 0)
-		fetchSearch()
+		if (searchText) {
+			fetchSearch()
+		}
 		// eslint-disable-next-line
 	}, [type, page])
 
@@ -58,6 +68,12 @@ export default function Search() {
 		setPage(1)
 	}
 
+	const handleKeyPress = (e) => {
+		if (e.key === 'Enter') {
+			fetchSearch()
+		}
+	}
+
 	return (
 		<div>
 			<ThemeProvider theme={darkTheme}>
@@ -68,6 +84,7 @@ export default function Search() {
 						label="Search"
 						variant="filled"
 						onChange={handleSearchChange}
+						onKeyUp={handleKeyPress}
 					/>
 
 					<Button
